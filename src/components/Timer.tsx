@@ -18,8 +18,7 @@ const Timer: React.FC<Props> = ({interval, city, gmt, className}) => {
     }, [])
     
     return <div className={className}>
-        <h3>Current Time</h3>
-        <p>{city}</p>
+        <h3>{city}</h3>
         <label>{time.toLocaleTimeString()}</label>
     </div>
 }
