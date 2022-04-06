@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Timer from './components/Timer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div className='timer-placeholder'>
+  <Timer interval={1000} city = 'Tel Aviv' gmt = {3} />
+  <Timer interval={1000} city = 'Beijing' gmt = {8}/>
+  <Timer interval={1000} city = 'New York' gmt = {-4}/>
+  <Timer interval={1000} city = 'London' gmt = {1}/>
+  </div>
+  )
 }
 
 export default App;
