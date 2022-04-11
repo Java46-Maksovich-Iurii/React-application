@@ -1,25 +1,25 @@
 import React, { useEffect } from "react";
 type Props = {
-    interval: number,
-    city: string,
-    gmt: number,
-    className?: string
+    interval?: number,
+    timeZone: string
 } 
-const Timer: React.FC<Props> = ({interval, city, gmt, className}) => {
+const Timer: React.FC<Props> = ({interval, timeZone}) => {
     const [time, setTime] = React.useState(new Date());
     function tic():void {
-        console.log('test');
-        const newDate = new Date();
-        newDate.setHours(newDate.getHours()+gmt-3);
-        setTime(newDate);
+        setTime(new Date());
     }
     useEffect(() => {
-        setInterval(tic, interval);
-    }, [])
+        console.log("timer mounted")
+        const intervalId = setInterval(tic, interval || 1000);
+        return () => {
+            clearInterval(intervalId);
+            console.log("unmount timer");
+        }
+    }, [interval])
     
-    return <div className={className}>
-        <h3>{city}</h3>
-        <label>{time.toLocaleTimeString()}</label>
+    return <div style={{marginLeft: "10vw"}}>
+        <h3>Current time in {timeZone}</h3>
+        <label>{time.toLocaleTimeString([], {timeZone})}</label>
     </div>
 }
 export default Timer;
