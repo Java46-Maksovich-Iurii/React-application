@@ -13,3 +13,4 @@ export function getRandomMatrix(columns: number, rows: number, min: number, max:
     }
     return res;
 }
+

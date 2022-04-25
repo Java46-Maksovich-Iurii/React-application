@@ -1,3 +1,4 @@
+import { randomBytes } from 'crypto';
 import React from 'react';
 import Life from './components/Life';
 import lifeGameConfig from './config/lifeGameConfig.json'

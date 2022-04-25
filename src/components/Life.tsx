@@ -8,6 +8,7 @@ type Props = {
 }
 const Life: React.FC<Props> = ({dimension, ticInterval}) => {
     const lifeMatrix = React.useRef<LifeMatrix>(new LifeMatrix(getRandomMatrix(dimension, dimension, 0 ,1)));
+    //const lifeMatrix = new LifeMatrix(getRandomMatrix(dimension, dimension, 0 ,1));
     const [numbers, setNumbers] = React.useState<number[][]>(lifeMatrix.current.numbers);
     function tic() {
         setNumbers(lifeMatrix.current.nextStep());
